@@ -224,6 +224,13 @@ import random
 1. url로 요청을 한다.
 2. 받은 응담을 가지고 원하는 데이터를 가지고 온다.
 
+```python
+import requests
+
+```
+
+
+
 
 
 
