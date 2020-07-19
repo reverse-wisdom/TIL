@@ -219,15 +219,33 @@ import random
 
   * 파이썬 내장함수인 json을 활용해서 json형태는 -> Dictionary 형태로 변환해서 사용
 
-#### 4) 웹크롤링 & API 통신의 큰 흐름
 
-1. url로 요청을 한다.
-2. 받은 응담을 가지고 원하는 데이터를 가지고 온다.
 
-```python
-import requests
+``` python
+#입력
+import requests #reaquest 모듈 불러오기 
+from bs4 import BeautifulSoup # bs4 모듈에서 Beautifulsoup 함수 불러오기
+
+# import와 from import 차이
+# 후자가 더 간단함
+# ex)BeautifulSoup를 쓰기 위해서 bs4.BeautifulSoup 이렇게 써야하는데
+# bs4를 쓰기 귀찮고 BeautifulSoup만 쓰기 위해서 from bs4 import BeautifulSoup 씀
+# => 하단 data 변수 저장할때 bs4.를 안붙여도됨
+
+url = 'https://finance.naver.com/sise/' # 데이터 불러올 사이트
+
+response = requests.get(url).text
+data = BeautifulSoup(response, 'html.parser')  #html.parser와 xml 있음
+select = data.select_one('#KOSPI_now') # url사이트에서 F12(개발자도구 활성화 키) 누르고 필요한 값 불러오기
+print(select.text)
+
+
+#실행결과
+2,202.19
 
 ```
+
+
 
 
 
