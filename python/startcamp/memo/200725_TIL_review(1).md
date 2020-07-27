@@ -1,3 +1,170 @@
+
+
+## **REVIEW(Private)**-(1)
+
+
+
+> ## **True & False**
+
+```python
+#1
+bool(0) =>F
+#2
+bool("")=>F
+#3
+type(None)=>NoneType
+#4
+a = None
+print(a)=>None
+#5
+bool(None)=>False
+
+#6
+type(True)
+type(False)
+=>bool
+
+#7
+a = [1, 2, 3]
+b = [1, 2, 3]
+print(a is b) =>false
+print(id(a) == id(b)) =>false
+
+```
+
+---
+
+> ## **암시적형변환**
+
+```python
+#1
+True + 3
+print(int(True))
+=>1
+#2
+check_passed = True
+check_passed + 3
+
+check_passed = True
+print(check_passed + 3)
+
+=>4
+
+#3
+int_number = 2020
+float_number = 3.14
+complex_number = 2 + 3j
+
+print(int_number + float_number)
+=>2023.14
+print(type(int_number + complex_number))
+=> complex
+
+★# 더 범위가 큰것으로 암시적으로 형변환 됨
+```
+
+
+
+> ## 대소의 관계
+
+
+
+``` => Tpython
+3 < 6 => T
+3 != 3.0 => F
+3.0 == 3.0 =>T
+'hello' == 'hello' =>T
+```
+
+
+
+
+
+
+
+
+
+> ## **실수의연산**
+
+```python
+#1
+print(3.5 + 3.2)
+=> 6.7
+
+#2
+print(3.5 - 3.2 == 0.3)
+=>False
+
+#3
+print(round(3.5 - 3.2, 2) == 0.3) =>true
+a = 3.141592
+print(round(a, 2)) => 3.14
+
+#4
+print(3.5 - 3.2)
+print(0.3)
+=>
+0.2999999999999998
+0.3
+
+#1
+abs(a - b) <= 1E-10
+#2
+import sys
+print(sys.float_info.epsilon)
+
+abs(a - b) <= sys.float_info.epsilon
+#3
+import math
+math.isclose(a, b)
+```
+
+> ## **String interpolation**
+
+```python
+name = 'an'
+print('내 이름은 %s 입니다.' % name)
+내 이름은 an 입니다
+print('내 이름은 {} 입니다'.format(name))
+내 이름은 an 입니다
+print(f'내 이름은 {name}입니다')
+내 이름은 an 입니다
+
+```
+
+```python
+print(f'''
+내 이름은
+{name}
+입니다.
+''')
+
+내 이름은
+an
+입니다.
+```
+
+```python
+import datetime
+now = datetime.datetime.now()
+print(now)
+=>2020-07-20 02:22:36.015179
+        
+now.today()
+f'올해는 {now:%Y}년 이번달은 {now:%m}월 오늘은 {now:%d}일'
+올해는 2020년 이번달은 07월 오늘은 20일
+```
+
+```python
+pi = 3.141592
+r = 10
+print(f'{pi:.3} 넓이는: {pi*r*r:.3}')
+=>3.14 넓이는: 3.14e+02
+    
+```
+
+
+
 # int
 
 Int(숫자, 계산식, 정수로 된 문자열만됨)
@@ -374,6 +541,9 @@ hellohellohello
 
 >## **딕셔너리**
 
+- `key`는 **변경 불가능(immutable)한 데이터**만 가능하다. (immutable : string, integer, float, boolean, tuple, rang, frozenset)
+- `value`는 `list`, `dictionary`를 포함한 모든 것이 가능하다.
+
 - 키이름이 중복되면
   - 키가 중복되면 가장 뒤에 있는 값만 사용함
   - 중복되는 키는 저장되지 않음
@@ -504,4 +674,67 @@ print( ’참‘ # not 빈 문자열은 참
 ```
 
 
+
+**None과 False는 같은건가요?**
+
+None이 False로 취급되긴하지만 None과 False는 같지 않습니다. None은 아무것도 없다는 뜻이며, False는 거짓을 나타냅니다. 다음과 같이 is 연산자로 None과 False가 가은지 확인햅면 False가 나오므로 둘은 서로 다릅니다
+
+```python
+None==False
+=>False
+None is false
+=>False
+```
+
+
+
+> ## **for문**
+
+
+
+- 시퀀스 객체로 반복하기
+
+  ```python
+  for는 range 대신 리스트,튜플 문자열 등 시퀀스 객체 반복가능함
+  
+  a = [10, 20, 30, 40]
+  
+  for i in a:
+      print(i)
+  ```
+
+- 최대값 구하기
+
+  ```python
+  numbers = [7, 10, 12, 14, 26]
+  max_num = numbers[0]
+  for i in numbers:
+  	if (max_num < number) 
+  ```
+
+  
+
+> ## while문
+
+```python
+초기식
+while 조건식:
+    반복할 코드
+   	변화식
+```
+
+
+
+
+
+> ##  all /any
+
+```python
+all: 인자로 받는 iterable(range, list)의 모든 요소가 참이거나 비어있으면 True를 반환합니다.
+
+any:  인자로 받는 iterable(range, list)의 요소 중 하나라도 참이면 True를 반환하고, 비어있으면 False를 반환합니다.
+ex) 리스트에 0 하나만 있으면 False로 반환함
+
+    
+```
 
