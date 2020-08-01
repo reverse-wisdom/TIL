@@ -82,14 +82,15 @@
   ```python
   #형식
   join(리스트)
+  ```
 ```
   
   ```python
   ' '.join(['apple', 'pear', 'grape', 'pineapple', 'orange'])
   #실행결과
   'apple pear grape pineapple orange'
-  ```
-  
+```
+
   ```python
   '-'.join(['apple', 'pear', 'grape', 'pineapple', 'orange'])
   'apple-pear-grape-pineapple-orange'
@@ -118,10 +119,44 @@
   ```
 
   ```python
-  'PYTHON'.lower()
+  print('PYTHON'.lower())
   
   #실행결과
   'python'
   ```
 
+**공백 및 특정문자 삭제하기**
+
+- lstrip
+
+  ```python
+  print('    Python    '.lstrip())
   
+  #실행결과
+  'Python    '
+  
+  print(', python,'.lstirp(,.))
+  ```
+
+  
+
+- rstrip()
+
+  ```python
+  print('    Python    '.rstrip())
+  
+  #실행결과
+  '    Python'
+  ```
+
+- strip()
+
+  ```python
+  print('    Python    '.strip())
+  
+  #실행결과
+  'Python'
+  ```
+
+  
+
