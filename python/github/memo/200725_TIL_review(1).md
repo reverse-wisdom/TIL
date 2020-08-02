@@ -656,8 +656,8 @@ if not 0 :
 print ( ’ 참’ # not 0은 참
 if not None:
 print( ‘참‘ # None 은 참
-if not
-print( ’참‘ # not 빈 문자열은 참
+if not '':
+print( '참') # not 빈 문자열은 참
 ```
 
 
@@ -665,7 +665,7 @@ print( ’참‘ # not 빈 문자열은 참
 **True, False로 취급하는 것들**
 
 ```python
-다음은 파이씬 문법 중에서 Fal se로 취급하는 것들입니다
+다음은 파이씬 문법 중에서 False로 취급하는 것들입니다
 • None 
 • False 
 • 0 인 숫자들 0, 0.0, 0j 
@@ -682,9 +682,11 @@ None이 False로 취급되긴하지만 None과 False는 같지 않습니다. Non
 ```python
 None==False
 =>False
-None is false
+None is False
 =>False
 ```
+
+
 
 
 
@@ -695,7 +697,7 @@ None is false
 - 시퀀스 객체로 반복하기
 
   ```python
-  for는 range 대신 리스트,튜플 문자열 등 시퀀스 객체 반복가능함
+  for는 range 대신 리스트,튜플, 문자열 등 시퀀스 객체 반복가능함
   
   a = [10, 20, 30, 40]
   
@@ -712,7 +714,14 @@ None is false
   	if (max_num < number) 
   ```
 
+- reversed 활용하기
+
+  ```python
+  for i reversed(range(10)):
+      print('hello world, i')
   
+                
+  ```
 
 > ## while문
 
@@ -738,3 +747,70 @@ ex) 리스트에 0 하나만 있으면 False로 반환함
     
 ```
 
+>### **break, continue**
+
+break 는 for , while 문법에서 제어 흐름을 벗어나기위해 사용, **continue**는 break와 비슷하지만 약간 다른 점이 있다. **break는 제어흐름을 중단하고 빠져나오지만, continue는 제어흐름(반복)을 유지한 상태에서 코드의 실행만 건너띄는 역할, 비유: 카드게임을 할 때, 패가 안 좋으면 판을 포기하고 다음 기회를 노리는 것과 비슷 **
+
+
+
+- ### break
+
+  - **while**
+
+  ```python
+  i = 0
+  while True: # 무한루프
+  	print(i) 
+      i += 1 #i를 1씩 증가시킴
+      if i == 100: #i가 100일때
+          break #반복문을 끝냄, while의 제어흐름을 벗어남
+          
+          
+  ```
+
+  - **for**
+
+  ```python
+  for i in range(100):
+      print(i)
+      if i == 100:
+          break
+  ```
+
+  
+
+- ### **continue**
+
+  - **for**
+
+    ```python
+    for i in range(100):
+        if i % 2 == 0:
+            continue
+        print(i)
+       
+    #실행결과
+    1
+    3
+    5
+    ...(생략)
+    95
+    97
+    99
+    ```
+
+    
+
+  - **while**
+
+    ```python
+    i = 0
+    while i < 100:
+        print(i)
+        if  i % 2 == 0:
+    	continue
+        i += 1
+        
+    ```
+
+    
