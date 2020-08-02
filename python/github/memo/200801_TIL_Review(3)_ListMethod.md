@@ -193,7 +193,7 @@
   [10, 30]
   ```
 
-  > ## del
+  ## ※ del
 
    pop대신 del 사용가능
 
@@ -300,4 +300,337 @@
 
 ### **※sort 메서드와  sorted 함수**
 
-파이썬은 
+파이썬은 리스트의 메서드뿐만 아니라 내장함수 sorted도 제공함, sort와 sorted 모두 정렬을 해주는 함수지만 
+
+차이점은 sort는 메서드를 사용한 리스트를 변경하지만, sorted 함수는 정렬된 새리스트를 생성함
+
+```python
+a = [10, 20, 30, 15, 20, 40]
+a.sort() #a의 내용을 변경하여 정렬
+print(a)
+
+b = [10, 20, 30, 15, 20, 40]
+sorted(b) # 정렬된 새 리스트를 생성
+```
+
+> ### **clear: 리스트의 모든 요소를 삭제하기**
+
+- clear()는 리스트의 모든 요소를 삭제합니다.
+
+  ```python
+  a = [10, 20, 30]
+  a.clear()
+  print(a)
+  
+  #실행결과
+  []
+  ```
+
+  ### **※ del**
+
+  ```python
+  a = [10, 20, 30]
+  del a[:]
+  print(a)
+  
+  #실행결과
+  []
+  ```
+
+  
+
+> ### **리스트를 슬라이스로 조작하기**
+
+``` python
+#예제1: 슬라이스 & len()
+
+a = [10, 20, 30]
+a[len(a):] =[500] #a.append(500)과 동일
+print(a)
+
+#실행결과
+[10, 20, 30, 500] 
+
+#에제1-1
+a = [10, 20, 30]
+a[len(a):] = [500, 600]
+print(a)
+
+#실행결과
+[10, 20, 30, 500, 600]
+
+```
+
+
+
+> ### **리스트의 할당과 복사 알아보기** (p.293)
+
+할당과 복사는 다름
+
+```python
+#1 할당
+a = [0, 0, 0, 0, 0]
+b = a
+print(a is b)
+
+
+#실행결과
+True
+```
+
+![image-20200802190544736](200802_TIL_ListMethod.assets/image-20200802190544736.png)
+
+```python
+#2 복사
+a = [0, 0, 0, 0, 0]
+b = a.copy()
+print(b)
+print(a is b)
+print(a == b)
+b[2] = 99
+print(a)
+print(b)
+
+#실행결과
+[0, 0, 0, 0, 0]
+False
+True
+[0, 0, 0, 0, 0]
+[0, 0, 99, 0, 0]
+
+```
+
+> ###  **인덱스와 요소를 함께 출력하기**
+
+- **for 인덱스, 요소 in enumerate(리스트):**
+- **for 인덱스, 요소 in enumerate(리스트,  start=1):**
+
+```python
+#예제1
+a = [38, 21, 53, 62, 19]
+for index, value in enumerate(a):
+	print(index, value)
+    
+#실행결과
+0 38
+1 21
+2 53
+3 62
+4 19
+
+#예제2: 인덱스를 1부터 출력하고싶을 때
+a = [38, 21, 53, 62, 19]
+for index, value in enumerate(a):
+	print(index+1, value)
+   
+#실행결과
+1 38
+2 21
+3 53
+4 62
+5 19
+
+#예제3: start 이용하기
+a = [38, 21, 53, 62, 19]
+for index, value in enumerate(a, start = 1): # start 없이 (a, 1) 도 가능
+	print(index, value)
+    
+#실행결과
+1 38
+2 21
+3 53
+4 62
+5 19
+
+
+```
+
+
+
+
+
+> ### **for 반복문에서 인덱스로 요소를 출력하기**
+
+```python
+a = [38, 21, 53, 62, 19]
+
+for i in range(len(a)):
+	print(a[i])
+    
+#실행결과
+38
+21
+53
+62
+19
+```
+
+=> for i in range(len(a))를 실행하면 i에는 요소가 아닌 0부터 마지막 인덱스까지 인덱스가 들어감
+
+
+
+> ### **while 반복문으로 요소 출력하기**
+
+```python
+a = [38, 21, 53, 62, 19]
+i = 0
+while i <len(a):
+    print(a[i])
+    i+=1
+```
+
+```python
+#실행결과
+38
+21
+53
+62
+19
+```
+
+
+
+> ### **리스트의 가장 적은 수, 가장 큰 수, 합계구하기**
+
+- #### 가장 작은 수와 가장 큰 수 구하기
+
+  - **for문 활용**
+
+  ```python
+  a = [30, 21, 53, 62, 19]
+  smallest = a[0]
+  for i in a:
+      if i < smallest:
+          smallest = i
+  print(smallest)
+  
+  #실행결과
+  19
+  ```
+
+  ```python
+  a = [38, 21, 53, 62, 19]
+  largest = a[0]
+  for i in a:
+  	if i > largest:
+      	largest = i
+  print(largest)
+  
+  #실행결과
+  62
+  
+  ```
+
+  - **sort 활용** 
+
+  ```python
+  # 가장 작은 수
+  a = [30, 21, 53, 62, 19]
+  a.sort()
+  print(a[0])
+  
+  #실행결과
+  19
+  
+  
+  #가장 큰수
+  a = [30, 21, 53, 62, 19]
+  a.sort(reverse= True)
+  print(a[0])
+  
+  #실행결과
+  62
+  ```
+
+  
+
+- #### **요소의 합계 구하기**
+
+  - **for문 활용**
+
+  ```python
+  a = [30, 21, 53, 62, 19]
+  total = 0
+  for i in a:
+      total += i
+  print(total)
+  
+  #실행결과
+  185
+  ```
+
+  - **sum 활용**
+
+  ```python
+  a = [30, 21, 53, 62, 19]
+  print(sum(a))
+  
+  #실행결과
+  185
+  ```
+
+- **리스트에 map 사용하기**
+
+  - **list(map(함수, 리스트))**
+
+  - **tuple(map(함수, 튜플))**
+
+  ```python
+  #예제1
+  a = [1.2, 2.5, 3.7, 4.6]
+  a = list(map(int, a))
+  print(a)
+  
+  #실행결과
+  [1, 2, 3, 4]
+  
+  ```
+
+  ```python
+  #예제2
+  a = list(map(str, range(10)))
+  print(a)
+  
+  #실행결과
+  ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  ```
+
+- **input().split()과 map**
+
+  ```python
+  #예제1
+  a = input().split()
+  print(a)
+  
+  #실행결과
+  ['10', '20'] # 문자열 두개가 들어있는 리스트가 만들어짐
+  
+  ```
+
+  ```python
+  #예제2
+  a = map(int, input(),split())
+  
+  print(a)
+  print(list(a))
+  
+  #실행결과
+  <map object at 0x000002C6D11291C8>
+  [10, 20]
+  ```
+
+  ```python
+  #예제3
+  a, b= [10, 20]
+  print(a)
+  print(b)
+  
+  #실헹결과
+  10
+  20 #a, b = map(int, input()).split())와 같은 동작
+  
+  
+  ```
+
+  
+

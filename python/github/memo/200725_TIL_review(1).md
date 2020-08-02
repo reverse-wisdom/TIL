@@ -806,11 +806,19 @@ break 는 for , while 문법에서 제어 흐름을 벗어나기위해 사용, *
     ```python
     i = 0
     while i < 100:
-        print(i)
-        if  i % 2 == 0:
-    	continue
         i += 1
+        if  i % 2 == 0:
+            continue
+        print(i)
         
+    #실행결과
+    1
+    3
+    5
+    ...(생략)
+    95
+    97
+    99  
     ```
 
     
