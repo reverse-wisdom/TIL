@@ -8,9 +8,9 @@
 
 ```python
 #1
-bool(0) =>F
+bool(0) =>F #0일경우
 #2
-bool("")=>F
+bool("")=>F #빈 타입
 #3
 type(None)=>NoneType
 #4
@@ -29,7 +29,7 @@ a = [1, 2, 3]
 b = [1, 2, 3]
 print(a is b) =>false
 print(id(a) == id(b)) =>false
-
+print(a == b) => True
 ```
 
 ---
@@ -73,6 +73,7 @@ print(type(int_number + complex_number))
 3 < 6 => T
 3 != 3.0 => F
 3.0 == 3.0 =>T
+3 == 3.0 =>T
 'hello' == 'hello' =>T
 ```
 
@@ -206,9 +207,9 @@ print(1,2 + 1.3j)
 
 
 ```python
-complex(1 .2, 1.3)
+complex(1.2, 1.3)
 
-#실행결가
+#실행결과
 (1.2+1.3j)
 ```
 
@@ -343,7 +344,7 @@ print(d)
 ```python
 #1
 # 변수에 값을 젖아할때()로 묶어주면 튜플이 되며 각 값은 ,(콤마)로 구분해줍니다.
-# 또는 괄호로 묵지 않고 갑만 콤마로 구분해도 튜플이 됨
+# 또는 괄호로 묶지 않고 갑만 콤마로 구분해도 튜플이 됨
 
 a = (38 , 21 , 53, 62, 19)
 print(a)
@@ -458,7 +459,7 @@ print(input().split())
 
 - 연결: 시퀀스 객체1+ 시퀀스객체2 가능
 
-※ range는 + 연산자로 객체연결 불가하지만 range를 리스나 튜플로 만들어서 연결하면 가능
+※ range는 + 연산자로 객체연결 불가하지만 range를 리스트나 튜플로 만들어서 연결하면 가능
 
 ```python
 print(list(range(0, 10)) + list(range(10,20))
@@ -478,7 +479,7 @@ print('hello'*3)
 hellohellohello
 ```
 
-- 요소 갯수 구하기
+- **요소 갯수 구하기**
 
   `len(a)` : 리스트, 튜플, range , 문자열 가능
 
@@ -488,7 +489,7 @@ hellohellohello
 
 - **인덱스 사용하기**
 
-  -**튜플， ran ge, 문자열도 [ ] 에 인텍스를 지정하면 해당 요소를 가져올 수 있습니다.**
+  -**튜플， range, 문자열도 [ ] 에 인텍스를 지정하면 해당 요소를 가져올 수 있습니다.**
 
   -문자열은 인덱스 사용할 때 공백은 건너 뛰고 카운팅됨
 
@@ -541,7 +542,7 @@ hellohellohello
 
 >## **딕셔너리**
 
-- `key`는 **변경 불가능(immutable)한 데이터**만 가능하다. (immutable : string, integer, float, boolean, tuple, rang, frozenset)
+- `key`는 **변경 불가능(immutable)한 데이터**만 가능하다. (immutable : string, integer, float, boolean, tuple, range, frozenset)
 - `value`는 `list`, `dictionary`를 포함한 모든 것이 가능하다.
 
 - 키이름이 중복되면
@@ -617,7 +618,7 @@ hellohellohello
   lux['mana'] = 1184 # 키 'mana'의 값을 1184로 변경
   print(lux)
   
-  lux['mana_regen']=3.28 #키 'mana_regen'으ㅜㄹ 추가하고 값 3.28 할당
+  lux['mana_regen']=3.28 #키 'mana_regen'을 추가하고 값 3.28 할당
         
   ```
 
@@ -669,7 +670,7 @@ print( '참') # not 빈 문자열은 참
 • None 
 • False 
 • 0 인 숫자들 0, 0.0, 0j 
-• 비어있는문자열, 리스트，튜플，믹셔너리，세트: ", "" , [], (), {} , set() 
+• 비어있는문자열, 리스트，튜플，딕셔너리，세트: ", "" , [], (), {} , set() 
 • 클래스 인스턴스의 __ booC _ ( ), __ len __ ( ) 메서드가 0 또는 Fa1se를 반환할 때
 ```
 
@@ -711,7 +712,7 @@ None is False
   numbers = [7, 10, 12, 14, 26]
   max_num = numbers[0]
   for i in numbers:
-  	if (max_num < number) 
+  	if (max_num < i) 
   ```
 
 - reversed 활용하기
