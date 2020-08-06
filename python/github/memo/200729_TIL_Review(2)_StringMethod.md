@@ -58,6 +58,7 @@
   ['apple', 'pear', 'grape', 'pineapple', 'orange']
    
    
+  ```
 ```
   
 
@@ -71,7 +72,7 @@
   ['apple', 'pear', 'grape', 'pineapple', 'orange']
   
 ```
-  
+
   
 
 **구분자 문자열과 문자열 리스트 연결하기**
@@ -136,7 +137,10 @@
   #실행결과
   'Python    '
   
-  print(', python,'.lstirp(,.))
+  print(',python'.lstrip(','))
+  
+  #실행결과
+  python
   ```
 
   

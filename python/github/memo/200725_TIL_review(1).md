@@ -343,7 +343,7 @@ print(d)
 
 ```python
 #1
-# 변수에 값을 젖아할때()로 묶어주면 튜플이 되며 각 값은 ,(콤마)로 구분해줍니다.
+# 변수에 값을 저장할때()로 묶어주면 튜플이 되며 각 값은 ,(콤마)로 구분해줍니다.
 # 또는 괄호로 묶지 않고 갑만 콤마로 구분해도 튜플이 됨
 
 a = (38 , 21 , 53, 62, 19)
@@ -471,7 +471,7 @@ print('hello'+'world')
 
 ```python
 print(list(range(0, 5, 2))*3)
-print(tuple(range(0, 5,2))*3)
+print(tuple(range(0, 5, 2))*3)
 print('hello'*3)
 =>
 [0, 2, 4, 0, 2, 4, 0, 2, 4]
@@ -654,7 +654,7 @@ else:
 
 ```python
 if not 0 :
-print ( ’ 참’ # not 0은 참
+print ('참') # not 0은 참
 if not None:
 print( ‘참‘ # None 은 참
 if not '':
