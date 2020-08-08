@@ -2,9 +2,17 @@
 
 tuple, list, range, str, bytes, bytearray, set, dict
 
+**immutable**
 
+숫자, 글자, 참거짓, range, tuple, frozenset()
 
-**[출처]** [[PYTHON\] iterable, iterator](https://blog.naver.com/imbgirl/221944531037)|**작성자** [내이름은소영](https://blog.naver.com/imbgirl)
+**mutable**
+
+list, dict, set
+
+**dict/key**
+
+키에는 mutabel 올수없음
 
 
 
@@ -48,7 +56,7 @@ print(list(a))
 
 ### **문자열**
 
--> 변경할 수 없고, 순서가 있고, 순회가 가능한
+-> ★변경할 수 없고, 순서가 있고, 순회가 가능한
 
 **.find(x)**
 
@@ -80,7 +88,7 @@ x 인덱스 반환 중복되면 첫번째 위치반환 없으면 -1반환
 
  #반복가능 튜플 리스트 
 
-**.capiltaize(), title(), upper()**
+**.capiltaize(), title(), upper(), lower(), swapcase()**
 
 ->변형시켜 반환만하기 떄문에 a를 출력해보면 그대로
 
@@ -111,13 +119,166 @@ Hi! eVERYONE, i'M KIM
 
 ```
 
+### **리스트**
+
+★ 문자열은 변경불가, 리스트는 내용 변경가능
+
+★ 변경가능하고, 순서가 있고, 순회가능한
+
+**append(x)** : 리스트에 값을 추가 할 수 있음, 값변경됨
+
+```python
+cafe = ['starbucks', 'tomntoms', 'hollys']
+print(cafe)
+```
 
 
-**lower(), swapcase()**
+
+**extend(x)**: 리스트에 iterable 값을 붙일수 있음, 덧셈과 같은기능
+
+```python
+cafe = ['starbucks', 'tomntoms']
+
+cafe.extend(['wcafe', '빽다방'])
+print(cafe)
+cafe.extend(range(1,10))
+print(cafe)
+cafe.extend('abc')
+print(cafe)
+cafe.extend(('t','a'))
+print(cafe)
+cafe.extend({'1': 'star'})
+print(cafe)
+cafe+=['mccafe','droptop']
+print(cafe)
+
+#실행결과
+['starbucks', 'tomntoms', 'wcafe', '빽다방']
+['starbucks', 'tomntoms', 'wcafe', '빽다방', 1, 2, 3]
+['starbucks', 'tomntoms', 'wcafe', '빽다방', 1, 2, 3, 'a', 'b', 'c']
+['starbucks', 'tomntoms', 'wcafe', '빽다방', 1, 2, 3, 'a', 'b', 'c', 't', 'a']
+['starbucks', 'tomntoms', 'wcafe', '빽다방', 1, 2, 3, 'a', 'b', 'c', 't', 'a', '1']
+['starbucks', 'tomntoms', 'wcafe', '빽다방', 1, 2, 3, 'a', 'b', 'c', 't', 'a', '1', 'mccafe', 'droptop']
+
+```
 
 
 
+**.insert(i, x)** : 정해진 위치 i에 값을 추가합니다  # 원본변경
+
+```python
+cafe = ['starbucks', 'tomntoms']
+cafe.insert(0, 'start') #가장앞에추가
+cafe.insert(len(cafe),'end') #맨 뒤에 추가
+
+#실행결과
+['start', 'starbucks', 'tomntoms']
+['start', 'starbucks', 'tomntoms', 'end']
+```
 
 
 
+```python
+cafe = ['starbucks', 'tomntoms']
+
+cafe.insert(len(cafe)+100, '!')
+print(cafe)
+cafe.insert(10000, '!')
+print(cafe)
+#실행결과
+['starbucks', 'tomntoms', '!']
+['starbucks', 'tomntoms', '!', '!']
+```
+
+
+
+**.remove(x)**
+
+리스트에서 값이 x인것을 삭제합니다.
+
+값이 없으면  오류남
+
+```python
+numbers = [1, 2, 3, 1, 2]
+numbers.remove(1)
+
+```
+
+
+
+**.pop(i)**
+
+정해진 위치 i에 있는값을 삭제하여, 그항목을 반환합니다.
+
+i가 지정되지 않으면 마지막항목을 삭제하고 되돌려줍니다
+
+```python
+a = [1, 2, 3, 4, 5]
+a.pop(0)
+print(a)
+
+#실행결과
+[2, 3, 4, 5]
+
+```
+
+```python
+print(a)
+deleted_value = a.pop()
+print(f'{deleted_value}가 삭제되어 {a}가 되었습니다.')
+
+#실행결과
+[2, 3, 4, 5, 6]
+6가 삭제되어 [2, 3, 4, 5]가 되었습니다.
+```
+
+**.clear()**
+
+```python
+numbers = list(range(1, 10))
+print(numbers)
+numbers.clear()
+print(numbers)
+
+#실행결과
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[]
+
+```
+
+**.sort()**
+
+- 정렬을 하는 함수, 내장함수 sorted() 와는 다르게 원본 리스트를 변형시키고 None을 반환시킴
+
+
+
+**리스트복사**
+
+```python
+a = [1, 2, 3]
+b = a[:]
+
+#b[0] = 5
+print(a)
+print(b)
+print(a is b)
+
+#실행결과
+[1, 2, 3]
+[1, 2, 3]
+False
+
+a = [1, 2, 3]
+b = list(a)
+
+#b[0] = 5
+print(a)
+print(b)
+print(a is b)
+
+#실행결과
+[1, 2, 3]
+[1, 2, 3]
+False
+```
 
