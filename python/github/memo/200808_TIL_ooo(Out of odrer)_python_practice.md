@@ -1,20 +1,22 @@
-**iterable**
+**iterable**(순회가능한)
 
 tuple, list, range, str, bytes, bytearray, set, dict
 
-**immutable**
+**immutable** 변경불가능한 객체
 
 숫자, 글자, 참거짓, range, tuple, frozenset()
 
-**mutable**
+**mutable** 변경가능한 객체
 
 list, dict, set
 
 **dict/key**
 
-키에는 mutabel 올수없음
+키에는 mutable 올수없음
 
+**set**
 
+요소에 immutable 한 객체만 들고 올 수있음
 
 **가변인자리스트**
 
@@ -141,7 +143,7 @@ cafe = ['starbucks', 'tomntoms']
 
 cafe.extend(['wcafe', '빽다방'])
 print(cafe)
-cafe.extend(range(1,10))
+cafe.extend(range(1,4))
 print(cafe)
 cafe.extend('abc')
 print(cafe)
@@ -258,7 +260,7 @@ print(numbers)
 a = [1, 2, 3]
 b = a[:]
 
-#b[0] = 5
+b[0] = 5
 print(a)
 print(b)
 print(a is b)
@@ -271,7 +273,7 @@ False
 a = [1, 2, 3]
 b = list(a)
 
-#b[0] = 5
+b[0] = 5
 print(a)
 print(b)
 print(a is b)
@@ -282,3 +284,109 @@ print(a is b)
 False
 ```
 
+### iterable 적용 가능한 내장함수
+
+iterable: list str set dict range
+
+### **map(), filter(), zip()**
+
+map(function, iterable) : 순회가능한 데이터 구조의 모든 요소에 function을 적용한 후 그 결과를 돌려준다
+
+![image-20200809030016479](200808_TIL_ooo(Out of odrer)_python_practice.assets/image-20200809030016479.png)
+
+**filter(fucntion, iterable)**
+
+- iterable에서 function의 반환된 결과가 `True` 인 것들만 구성하여 반환한다
+- 'filter object'를 반환한다
+
+
+
+```python
+#짝수일경우
+def even_num(n):
+    return True if n%2 ==0 else False
+number=range(1,11)
+new_number = list(filter(even_num, number))
+print(new_number)
+
+#실행결과
+[2, 4, 6, 8, 10]
+```
+
+
+
+**zip(*terables)**
+
+- 복수의 iterable 객체를 모아 zip()으로 준다
+- 결과는 튜플의 모음으로 구성된 zip object를 반환한다.
+
+
+
+>  ### **set**
+
+변경가능하고, 순서가 없고, 순회가능함
+
+-> 슬라이싱, 자르기, 인덱싱안됨 
+
+-> 길이, 루프,아이템검(in) 검사가능
+
+->dictionary 의 key 가 set 의 item 이 된다. 그렇기 때문에 set 은 dictionary 나 list 처럼 중복되는 요소를 담을 수 없다.
+
+-> 원소추가 add(요소), update(iterable객체가 와야함), 원소제거 remove(에러발생o), discard(에러발생x)
+
+->집합 자체는 수정/추가 될 수 있지만 포함된 요소는 immutable 해야 한다.
+
+
+
+> ### **Dictionary** 
+
+변경가능, 순서가없음, 순회가능한(iterable)
+
+
+
+###  `.get(key[, default])`
+
+key를 통해 value를 가져옵니다.
+
+절대로 KeyError가 발생하지 않습니다. default는 기본적으로 None입니다.
+
+뒤에 뭐 지정해주며 Noe 말고 다른값나옴
+
+```python
+my_dict = {'apple': '사과', 'banana': '바나나', 'melon': '멜론'}
+print(my_dict.get('pineapple'))
+print(my_dict.get('apple'))
+print(my_dict.get('pineapple', 0))
+
+#실행결과
+None
+사과
+0
+```
+
+```python
+my_dict = {'apple': '사과', 'banana': '바나나', 'melon': '멜론'}
+for i in my_dict.values
+```
+
+**.pop()**
+-> key가 딕셔너리에 있으면 제거하고 그 값을 돌려줍니다. 그렇지 않으면 default 반환
+
+default가 없는 상태에서 딕셔너리에 없으면 키에러발생
+
+키값뒤에 `,0` 해주면 키에러가아니라 0반환 `get`이랑 비슷 
+
+---
+
+> ### oop
+
+```py
+# 형식
+# isinstance(데이터, 타입)
+isinstance(a, int)
+
+#실행결과
+True
+```
+
+![image-20200810013201957](200808_TIL_ooo(Out of odrer)_python_practice.assets/image-20200810013201957.png)
