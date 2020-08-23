@@ -2,19 +2,29 @@
 
 
 
+> ### Homework, Workshop ###
+
+#### ★0810
+
 **HTML(Hyper Text Markup Language)**
 
 **CSS(Cascading Style Sheets)**
 
 
 
-### <HTML/CSS 진위여부>
+### # HTML/CSS 진위여부
 
 HTML과 CSS는 각자 문법을 갖는 별개의 언어이다.
 
 웹브라우저는 내장 기본 스타일이 있어 CSS 가없어도 작동한다
 
 id 값은 유일해야하므로 중복되어서는 안된다 .
+
+
+
+### #구조선택자
+
+![image-20200823152619133](20200823_HCB_reivew.assets/image-20200823152619133.png)
 
 ---
 
@@ -66,19 +76,30 @@ id 값은 유일해야하므로 중복되어서는 안된다 .
 - Non sementic 요소는 div, span 등이 있으며, h1 , table 태그 들고 시맨틱 태그로 볼 수 있음
 - 검색엔진최적화(SEP)를 위해서 메타택, 시맨틱 태그등을 통한 마크업을 효과적으로 할 필요가 있다
 
+---
+
+
+
 ### **<Block & Inline>**
 
 ##### block: 한 요소가 페이지 끝까지 차지하고 다음요소가 다음문단으로 옴
 
-div, h, p, 목록태그, 테이블태그, form태그
+- **div, h, p, 목록태그, 테이블태그, form태그**
 
 	- 쌓이는 박스
 	- 요소는 블록 요소 상자를 생성하여 일반 흐름에서 요소 앞뒤에 줄 바꿈을 생성한다.
 	- 블록 레벨 요소안에 인라인 레벨 요소가 들어갈 수 있다.
 
+```css
+display: block;
+-줄바꿈이 일어나는 요소
+-화면 크기 전체의 가로 폭을 차지한다.
+블록 레벨 요소 안에 인라인 레벨 요소가 들어갈 수 있음
+```
+
 **inline: **
 
-span, a, input, 글자형식
+- **span, a, input, 글자형식**
 
 - 한 요소가 콘텐츠만큼 자리 차지 (tag: span, div)
 - 줄바꿈이 일어나지 않는 행의 일부 요소
@@ -87,15 +108,52 @@ span, a, input, 글자형식
 
 - 상하 여백은 line-height로 지정 
 
+```css
+display: inline;
+-줄바꿈이 일어나지 않는 행의 일부 요소
+-content너비만큼 가로 폭을 차지한다.
+-width, height, margin-top, margin-bottom을 지정할 수 없다.
+-상하 여백은 line-height로 지정한다
+```
+
+#### **속성에 따른 수평정렬**
+
+![image-20200823135122692](20200823_HCB_reivew.assets/image-20200823135122692.png)
+
 **inline-block**
 
 - inline처럼 텍스트 흐름대로 나열, block 처럼 박스 형테이기 때문에 block속성 사용가능
+
+```css
+display: inline-block;
+- block과 inline 레벨 요소의 특징을 모두 갖는다.
+- inline처럼 한 줄에 표시가능하며,
+- block처럼 width, height, margin 속성을 모두 지정할 수 있다
+```
 
 **none**
 
 - 해당 요소를 화면에서 사라지게 하며 요소의 공간조차 사라지게 한다.
 
 - visibility: hidden;은 해당 요소를 화면에서 사라지게는 하나 공간은 사라지지 않는다.
+
+```css
+display: none;
+- 해당 요소를 화면에 푯하지 않는다. (공간조차 사라진다.)
+- 이와 비슷한 visibility: hidden;은 해당요소가 공간을 차지하나 화면에 표시만 하지 않는다.
+```
+
+
+
+
+
+**<예시>**
+
+![image-20200823133822277](20200823_HCB_reivew.assets/image-20200823133822277.png)
+
+---
+
+
 
 ### **<HTML 태그 종류>**
 
@@ -148,7 +206,7 @@ span, a, input, 글자형식
 
 ### <CSS단위>
 
-기본폰트 16px
+**기본폰트 16px**
 
 **px**(상대크기)
 
@@ -181,7 +239,64 @@ span, a, input, 글자형식
 
 ### < CSS: Box Model >
 
-웹디자인은 contents를 담을 box model을 정의하ㅏ고 css
+### 구성
+
+![image-20200823130250794](20200823_HCB_reivew.assets/image-20200823130250794.png)
+
+
+
+### **표현법**
+
+![image-20200823130448804](20200823_HCB_reivew.assets/image-20200823130448804.png)
+
+
+
+### **box-sizing**
+
+- 전체 선택자로 border-box로 지정해주는편
+
+  ```css
+      * {
+        box-sizing: border-box;
+      }
+  ```
+
+  
+
+- 기본적으로 모든 요소의 box-sizing은 content-box
+  - Padding을 제외한 순수 contents 영역만을 box로 지정
+
+- 다만, 우리가 일반적으로 영역을 볼 때는 border까지의 너비를 100px 보는것을 원함
+  - 그 경우 `box-sizing`을 `border-box`으로 설정
+
+```html
+    .box-sizing {
+      box-sizing: border-box;
+	
+    }
+```
+
+
+
+```html
+    .box-sizing {
+      box-sizing: border-box;
+    }
+```
+
+
+
+<img src="20200823_HCB_reivew.assets/image-20200823131039003.png" alt="image-20200823131039003" style="zoom:80%;" />
+
+- **마진상쇄**
+
+```css
+#마진상쇄: 마진이 겹치면 더해지는게 아니라 가장큰 값으로 덮어 씌워짐
+```
+
+---
+
+
 
 ### < CSS: Position>
 
@@ -197,18 +312,34 @@ span, a, input, 글자형식
 
  1. static (기본 위치)
 
+    - 기본적인 요소의 배치 순서에 따름(좌측 상단)
+    - 부모 요소 내에서 배치될 때는 부모 요소의 위치를 기준으로 배치된다
+
     - 모든 태그의 기본
 
     - 태그의 default 값
 
+---
+
+아래 좌표 프로퍼티(top, bottom, left, right)ㄹ를 사용하여 이동이 가능하다(음수값도 가능)
+
 2. relative (상대 위치)
    - 기본 위치(static)를 기준으로 좌표 속성을 사용해 위치 이동 
 
+![image-20200823142452056](20200823_HCB_reivew.assets/image-20200823142452056.png)
+
+
+
 3. absolute (절대 위치)
+
    - static 이 아닌 부모/조상 요소를 기준으로 좌표 속성 만큼 이동
    - 부모 요소를 찾아가고 나아가 없다면 body에 붙는다.
+
+   
+
 4. fixed (고정 위치)
-   - 부모/조상 요소와 관계없이 브라우저의 viewport를 기준으로 좌표 속성 만큼 이동
+
+   - 부모/조상 요소와 관계없이 브라우저의 viewport(브라우저)를 기준으로 좌표 속성 만큼 이동
    - 스크롤을 내리거나 올려도 화면에서 사라지지 않고 항상 같은 곳에 위치
 
 
@@ -225,7 +356,17 @@ span, a, input, 글자형식
 
   - 팝업 정보 상자 및 제어 메뉴, 롤오버 패널, 페이지 어느 곳에서나 끌어서 놓기할 수 있는 유저 인터페이스 페이지 등
 
-### < CSS 상속 > 
+- <img src="20200823_HCB_reivew.assets/image-20200823180506695.png" alt="image-20200823180506695" style="zoom:67%;" />
+
+
+
+![image-20200823145203859](20200823_HCB_reivew.assets/image-20200823145203859.png)   
+
+---
+
+
+
+### < CSS 상속 >
 
 CSS는 상속을 통해 요소의 속성을 자식에게 상속한다
 
@@ -237,19 +378,263 @@ CSS는 상속을 통해 요소의 속성을 자식에게 상속한다
   - Box model 관련요소(width, height, margin padding, border, box-sizing, display)
   - positon 관련 요소(position, top/right/botton/left, z-index)
 
+**예시**
+
+![image-20200823132305895](20200823_HCB_reivew.assets/image-20200823132305895.png)
 
 
 
 
-#마진상쇄: 가장큰 값으로 덮어 씌워짐
 
-#상하좌우 
+### **<선택자 종류>**
 
-#속성에 따른 수평정렬(block, inline)
+![image-20200823165400496](20200823_HCB_reivew.assets/image-20200823165400496.png)
 
-#dispay: inline-block
 
-#display:none (해당요소를 화면에 포시하지 않음, 공간조차 사라진다)
 
-#visibility:hidden
+### **input 태그**
 
+- `label`  `for` = `input` `id` 랑 같아야함
+
+  ​	placeholder 
+
+- button, radio checkbox 
+
+
+
+### **button 종류**
+
+```html
+<!-- 일반 버튼은 눌리는 버튼 역할 -->
+<input type="button" value="로그인">
+<!-- 서브밋 버튼은 눌리면 form 태그에 설정된 action 으로 값을 보내줌. -->
+<input type="submit" value="서브밋">
+<!-- 얘도 서브밋 역할 -->
+<button>버튼</button>
+```
+
+
+
+
+
+### float
+
+
+
+![image-20200823225135691](20200823_HCB_reivew.assets/image-20200823225135691.png)
+
+```css
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+```
+
+
+
+
+
+`
+
+### **자손선택자, 자식선택자 차이점**
+
+
+
+
+
+
+
+## **flexbox**
+
+- 부모 요소에 `display:flex` 혹은 `inline-flex`를 작성하는것부터 시작한다
+
+- 일명 flexbox라 불리는 Flexible Box module은 flexbox 인터페이스 내의 아이템 간 공간 배분과 강력한 정렬 기능을 제공하기 위한 1차원 레이아웃 모델로 설계되었다.
+
+  웹페이지의 컨테이너에 아이템의 폭과 높이 또는 순서를 변경해서 웹페이지의 사용 가능한 공간을 최대한 채우고 이를 디바이스 종류에 따라 유연하게 반영하도록 하는 개념
+
+```css
+.flex-container {
+    display; flex:
+}
+```
+
+<img width="947" alt="Screen Shot 2020-08-12 at 4 53 25 PM" src="https://user-images.githubusercontent.com/18046097/89989904-8b76c300-dcbc-11ea-8427-051cce03807c.png">
+
+**핵심 개념**
+
+- 요소
+  - flex container
+  - flex items
+- 축
+  - maix axis (주축)
+  - cros axis (교차축)
+
+
+
+
+
+#### **Flex에 적용하는 속성**
+
+
+
+**justify** 가 들어가면 메인축, **align** 이면 교차축 
+
+- 배치 방향설정: `flex-direction`   좌우->상하로도 바꿀 수 있음
+
+  - main-axis 방향만 바뀐다.
+
+  - flexbox는 단방향 레이아웃이기 떄문이다
+
+    - row/row-reverse/column/column-reverse
+
+    ![image-20200823231107636](20200823_HCB_reivew.assets/image-20200823231107636.png)
+
+- 메인축 방향 정렬: `justify-content`
+
+- 교차축 방향 정렬 : `aline-items`, `align-self`, `align-content`
+
+- 기타: `flex-wrap`, `flex-flow`. `flex-grow`, `order`, `flex-shrink`
+
+
+
+### **content & items & self**
+
+- content: 여러줄
+- items: 한줄
+- self: flex item 개별요소
+- 예시:
+  - justify- content: 메인축 기준 여러줄 정렬
+  - align-items: 교차축 기준 한 줄 정렬
+  - align-self: 교차축 기준 선택한 요소하나 정렬
+
+---
+
+**< justify-content >**
+
+- flex-start, flex-end,  center,  space-between, space-around, space-evenly
+
+**< align-items >**
+
+- flex-start, flex-end, center, stretch, baseline
+
+**< align-content >**
+
+- flex-start, flex-end, center, stretch, space-between, space-around
+
+**< align-self >**
+
+- auto, flex-start, flex-end, center, baseline, stretch
+
+---
+
+**기본형식**
+
+```css
+.flex-container {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+```
+
+
+
+**1. 부모 container에 flex 선언시**
+
+​	1) item은 행으로 나열된다.
+
+​	2) item은 메인축의 시작선에서 시작한다.
+
+​	3) item은 크로스축의 크기를 채우기 위해 늘어난다.
+
+​	**※flex-direction은 디폴트값이 row이다**
+
+​	**※ self는 개별요소라, 전체 컨테이너에 넣는게 아니라 각 요소에 지정해준다**
+
+- `display: inline-flex;`  일 경우 컨텐츠만큼 채워짐
+
+- `flex-wrap:wrap;` 넘치는 컨텐츠는 줄바꿈해서 채워진다.
+- `flex-direction: row-reverse;`
+
+![image-20200823235551096](20200823_HCB_reivew.assets/image-20200823235551096.png)
+
+- `flex-direction: column;`
+
+![image-20200823235715345](20200823_HCB_reivew.assets/image-20200823235715345.png)
+
+- `flex-direction: column-reverse;`
+
+![image-20200823235829539](20200823_HCB_reivew.assets/image-20200823235829539.png)
+
+- `flex-flow: column wrap;`  ▶ flex-direction + flex-wrap의 축약 (축, 랩설정)
+- `justify-content: flex-end; `**★flex-direction: row-reverse와 혼동하지 말것!!**
+
+![image-20200824000217418](20200823_HCB_reivew.assets/image-20200824000217418.png)
+
+- `justify-content: center;`
+
+![image-20200824000345603](20200823_HCB_reivew.assets/image-20200824000345603.png)
+
+- `justify-content: space-between;` 처음과 긑을 가장자리에 두고 나머지는 일정한 간격으로 배치됨
+
+![image-20200824000858546](20200823_HCB_reivew.assets/image-20200824000858546.png)
+
+- `justify-content: space-around` : 내부 요소의 여백이 외곽요소의 2배임
+
+![image-20200824001007324](20200823_HCB_reivew.assets/image-20200824001007324.png)
+
+- `justify-content: space-evenly;` 내부요소여백과 외부요서여백이 같음
+
+![image-20200824001637914](20200823_HCB_reivew.assets/image-20200824001637914.png)
+
+---
+
+**크로스축 정렬**
+
+- `align-items`: `flex-start;` items는 한줄
+
+![image-20200824002334066](20200823_HCB_reivew.assets/image-20200824002334066.png)
+
+
+
+- `align-items`: `flex-end;` 
+
+![image-20200824002434804](20200823_HCB_reivew.assets/image-20200824002434804.png)
+
+- `align-items: center;`
+
+![image-20200824002650504](20200823_HCB_reivew.assets/image-20200824002650504.png)
+
+
+
+
+
+메인축/ 보조축 중앙정렬 : justify-cont: center; , align-items: center;
+
+- `align-items: baseline;`  각 요소가 글자크기 다를때 글자 밑에 여백이 동일함
+
+![image-20200824003208806](20200823_HCB_reivew.assets/image-20200824003208806.png)
+
+---
+
+**self**
+
+< flex-direction:row >
+
+![image-20200824003847478](20200823_HCB_reivew.assets/image-20200824003847478.png)
+
+< flex-direction:column >
+
+![image-20200824004256561](20200823_HCB_reivew.assets/image-20200824004256561.png)
+
+- `align-self: stretch;`
+
+![image-20200824004021119](20200823_HCB_reivew.assets/image-20200824004021119.png)
+
+---
+
+**기타**
+
+**order** 기본값은 0
+
+![image-20200824004615966](20200823_HCB_reivew.assets/image-20200824004615966.png)
