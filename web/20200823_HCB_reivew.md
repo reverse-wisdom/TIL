@@ -59,6 +59,60 @@ id 값은 유일해야하므로 중복되어서는 안된다 .
 5. 요소 선택자
 6. 소스 순서
 
+
+
+
+
+## **★0813**
+
+**row**: flex-row
+
+**column**: flex-column
+
+**row-reverse**: flex-row-reverse
+
+**column-reverse**: flex-column-reverse
+
+
+
+**row**: 주 축을 좌에서 우로 설정
+
+**column**: 주 축을 위에서 아래로 설정
+
+**row-reverse** :주 축을 우에서 좌로 설정
+
+**coloumn-reverse** : 주 축을 아래에서 위로 설정
+
+
+
+align-items속성의 4가지 값과 각각의 특징을 작성하시오
+
+- strech: 부모속성의 높이에 맞게 최대 높이로 늘여서 맞춤
+
+- center: 수직축의 가운데 정렬
+
+- start: 수직축의 시작점부터 정렬
+
+- end: 수직축의 끝점부터 정렬
+
+  
+
+**flex-flow**
+
+(1)flex-direction, flex-wrap
+
+
+
+
+
+![image-20200824045726166](20200823_HCB_reivew.assets/image-20200824045726166.png)
+
+----
+
+container/row/ break point(sm, md, lg, xl)-화면의 크기에 따라서 적용되는 클래스를 다르기 하기위해 사용,
+
+12이하 정수: 12개로 나우어진 공간에서 몇칸을 차지하는 표시** 
+
 ### **<시맨틱태그>**
 
 - HTML5에서 의미론적 요소를 담은 태그의 등장 
@@ -73,7 +127,7 @@ id 값은 유일해야하므로 중복되어서는 안된다 .
 
 - 개발자 및 사용자 뿐만 아니라 검색엔진 등에 의미있는 정보의 그룹을 테그로 표현
 - 단순히 구역을 나누는 것 뿐만 아니라 의미를 가지는 태그들을 활용하기 위해 노력
-- Non sementic 요소는 div, span 등이 있으며, h1 , table 태그 들고 시맨틱 태그로 볼 수 있음
+- Non sementic 요소는 div, span 등이 있으며, h1 , table 태그 들더 시맨틱 태그로 볼 수 있음
 - 검색엔진최적화(SEP)를 위해서 메타택, 시맨틱 태그등을 통한 마크업을 효과적으로 할 필요가 있다
 
 ---
@@ -139,7 +193,7 @@ display: inline-block;
 
 ```css
 display: none;
-- 해당 요소를 화면에 푯하지 않는다. (공간조차 사라진다.)
+- 해당 요소를 화면에 표시하지 않는다. (공간조차 사라진다.)
 - 이와 비슷한 visibility: hidden;은 해당요소가 공간을 차지하나 화면에 표시만 하지 않는다.
 ```
 
@@ -201,7 +255,7 @@ display: none;
 
 **복합 선택자**
 
-- 자손(하위의 모든 요소) : 셀렉터a  공백 셀렉터b-
+- 자손(하위의 모든 요소) : 셀렉터a  공백 셀렉터b
 - 자식(바로 아래의 요소) : 셀렉터a > 셀렉터b
 
 ### <CSS단위>
@@ -226,7 +280,7 @@ display: none;
 
 **rem**
 
-- 최상위 요소인 html(root em)을  절대 단위를 기준으로 삼음. 상속의 영향을 받지 않음.
+- 최상위 요소인 html(ro  ot em)을  절대 단위를 기준으로 삼음. 상속의 영향을 받지 않음.
 - 상속에 영향을 받지 않기 때문에 대부분의 경우 rem 을 많이 사용한다.
 
 **viewport**
@@ -440,7 +494,7 @@ CSS는 상속을 통해 요소의 속성을 자식에게 상속한다
 
 
 
-
+자손과 자식은 자손은 선택된 요소 안의 지정된 모든 하위 태그를 말하는 것이고 자식 선택은 요소 안의 바로 아래태그를 가르친다
 
 
 
@@ -468,6 +522,19 @@ CSS는 상속을 통해 요소의 속성을 자식에게 상속한다
 - 축
   - maix axis (주축)
   - cros axis (교차축)
+
+```html
+justify - main axis
+align - cross axis
+
+content - 여러 줄
+items - 한 줄
+self - 개별 요소
+
+justify-content: 메인축 기준 여러줄 정렬
+align-items: 교차축 기준 한 줄 정렬
+align-self: 교차축 기준 선택한 요소 하나 정렬
+```
 
 
 
@@ -541,7 +608,7 @@ CSS는 상속을 통해 요소의 속성을 자식에게 상속한다
 
 **1. 부모 container에 flex 선언시**
 
-​	1) item은 행으로 나열된다.
+​	1) item은 행으로 나열된다.9
 
 ​	2) item은 메인축의 시작선에서 시작한다.
 
@@ -554,6 +621,8 @@ CSS는 상속을 통해 요소의 속성을 자식에게 상속한다
 - `display: inline-flex;`  일 경우 컨텐츠만큼 채워짐
 
 - `flex-wrap:wrap;` 넘치는 컨텐츠는 줄바꿈해서 채워진다.
+- `flex-wrap:nowrap;`모든 아이템들 한 줄에 나타내려고 함 (그래서 자리가 없어도 튀어나옴) , 기본값
+- `flex-wrap:wrpa-reverse;`  넘치면 그 윗줄로 (역순)
 - `flex-direction: row-reverse;`
 
 ![image-20200823235551096](20200823_HCB_reivew.assets/image-20200823235551096.png)
@@ -611,7 +680,7 @@ CSS는 상속을 통해 요소의 속성을 자식에게 상속한다
 
 메인축/ 보조축 중앙정렬 : justify-cont: center; , align-items: center;
 
-- `align-items: baseline;`  각 요소가 글자크기 다를때 글자 밑에 여백이 동일함
+- `align-items: baseline;`  각 요소가 글자크기 다를때 글자 밑에 여백이 동일함, item 내부의 text에 기준선을 맞춤
 
 ![image-20200824003208806](20200823_HCB_reivew.assets/image-20200824003208806.png)
 
@@ -627,7 +696,7 @@ CSS는 상속을 통해 요소의 속성을 자식에게 상속한다
 
 ![image-20200824004256561](20200823_HCB_reivew.assets/image-20200824004256561.png)
 
-- `align-self: stretch;`
+- `align-self: stretch;` 부모 컨테이너에 자동으로 맞춰서 늘어난다.
 
 ![image-20200824004021119](20200823_HCB_reivew.assets/image-20200824004021119.png)
 
@@ -635,6 +704,165 @@ CSS는 상속을 통해 요소의 속성을 자식에게 상속한다
 
 **기타**
 
-**order** 기본값은 0
+**order** 기본값은 0, 작은 숫자 일수록 앞(왼쪽)으로 이동. 음수사용 가능
 
 ![image-20200824004615966](20200823_HCB_reivew.assets/image-20200824004615966.png)
+
+**flex-grow** 남은 공간을 어떻게 분배할것인지, 음수사용불가
+
+![image-20200824005538275](20200823_HCB_reivew.assets/image-20200824005538275.png)
+
+- 남은 공간을  1+2+3 등분해서 item1에 1, item2에 2, item3에 3을 준다는 의미, 비율아님!!
+
+![image-20200824010015030](20200823_HCB_reivew.assets/image-20200824010015030.png)
+
+
+
+
+
+---
+
+> ## Bootstrap
+
+### Spacing
+
+![image-20200824015458373](20200823_HCB_reivew.assets/image-20200824015458373.png)
+
+
+
+`.mx-auto` : 수평중앙정렬
+
+`.py-0` = padding-top: 0;, padding-bottom: 0;
+
+
+
+### **fixed-top 과 sticky-top 비교**
+
+fixed-top: 브라우저에서 계속 고정
+
+stick-top:  다음 stick-top 만날때까지 고정이다가 다음 sticky-top 만나면 가려지고 마지막에 적은 stick-top만 보이게됨 
+
+
+
+
+
+### **Breakpoints**
+
+-상단 숫자봐야함!!!
+
+![image-20200824024147600](20200823_HCB_reivew.assets/image-20200824024147600.png)
+
+### ![image-20200824024118549](20200823_HCB_reivew.assets/image-20200824024118549.png
+
+![image-20200824023005184](20200823_HCB_reivew.assets/image-20200824023005184.png)
+
+- 기존 문법이랑 다름
+
+  justify-content-start -> justify-content: flex-start;
+
+  d-flex -> display=flex; 
+
+
+
+---
+
+> ## **Grid System**
+
+![image-20200824023458862](20200823_HCB_reivew.assets/image-20200824023458862.png)
+
+- container로 감싸야함
+
+
+
+**12개넘어가면 다음행으로 넘어감**
+
+![image-20200824024922458](20200823_HCB_reivew.assets/image-20200824024922458.png)
+
+
+
+div class="w-100" 하면 부모요소의 너비를 상속받는 투명한 요소를 만들어 12/34 문단나눔가능
+
+
+
+
+
+![image-20200824025017316](20200823_HCB_reivew.assets/image-20200824025017316.png)
+
+
+
+---
+
+### **Components**
+
+navbar
+
+pagination
+
+---
+
+![image-20200824055353766](20200823_HCB_reivew.assets/image-20200824055353766.png)
+
+
+
+
+
+![image-20200824055936141](20200823_HCB_reivew.assets/image-20200824055936141.png)
+
+
+
+![image-20200824060228647](20200823_HCB_reivew.assets/image-20200824060228647.png)
+
+flex-direction: row-reverse;
+justify-content: flex-end;
+
+
+
+![image-20200824060526059](20200823_HCB_reivew.assets/image-20200824060526059.png)
+
+flex-direction: column;
+justify-content: flex-end
+
+
+
+![image-20200824060754641](20200823_HCB_reivew.assets/image-20200824060754641.png)
+
+
+
+flex-direction:row-reverse;
+justify-content:center;
+align-items:flex-end
+
+
+
+![image-20200824061104101](20200823_HCB_reivew.assets/image-20200824061104101.png)
+
+align-self: flex-end;
+order:1
+
+![image-20200824061308792](20200823_HCB_reivew.assets/image-20200824061308792.png)
+
+flex-direction: column;
+flex-wrap:wrap;
+
+
+
+![image-20200824061512053](20200823_HCB_reivew.assets/image-20200824061512053.png)
+
+
+
+![image-20200824061651467](20200823_HCB_reivew.assets/image-20200824061651467.png)
+
+
+
+flex-direction:column-reverse;
+align-content:center
+
+
+
+![image-20200824062446218](20200823_HCB_reivew.assets/image-20200824062446218.png)
+
+
+
+flex-flow: column-reverse wrap-reverse;
+justify-content:center;
+align-content: space-between;
