@@ -6,12 +6,12 @@
 
   * `python -m venv venv`
   * vscode 에서 interpreter 설정.
-  * 가상환경 실행. 
+  * 가상환경 실행. (F1or Ctrl+Shift+P)
     1. vscode 새로운 터미널창 오픈 (vscode 자동 실행)
        * 실행 안되면 쓰레기통 눌러 종료 후 다시 실행.
     2. `source venv/Scripts/activate` 실행 (수동 실행 방법)
 
-  * pip list 로 깨끗한지 확인.
+  * pip list 로 깨끗한지 확인.(pip install -r requirements.txt (있는경우에만))
   * `pip install django`
 
 ----
@@ -126,5 +126,6 @@
       ```
 
   * Delete
+    
     * DB 를 삭제하는 동작이기 때문에 POST 방식을 이용.
 
