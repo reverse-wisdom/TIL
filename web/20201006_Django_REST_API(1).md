@@ -55,7 +55,7 @@ from .models import Board
 
 class BoardListSerializer(serializers.ModelSerializer):
     class Meta:
-        model =Boar:
+        model =Board
         fields = ['id', 'title',]
         
 class CommentListSerializer(serializers.ModelSerializer):
@@ -150,7 +150,7 @@ def board_list_create(request):
 @api_view(['GET','PUT','DELETE'])
 def board_detail_update_delete(request, board_pk):
 	board = get_object_or_404(Board, pk=board_pk)
-    if request.metho=='PUT':
+    if request.method=='PUT':
         serializer= BoardSerializer(instance=board, data=request.data)
         if serializer.is_valid(raise_exception.True):
             serializer.save()
@@ -236,7 +236,7 @@ def comment_detail_update_delete(request, comment_pk):
         #정보를 삭제한다
         comment.delete()
         # 삭제된 정보를 리턴한다
-        return Response({'id':comment_pk}, status=status=HTTP_204_NO_CONTENT)
+        return Response({'id':comment_pk}, status=status.HTTP_204_NO_CONTENT)
     else:
         # 2. 정보를 직렬화해서 인스턴스를 만든다
         serializer = CommentSerializer(comment)
