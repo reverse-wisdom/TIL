@@ -308,13 +308,88 @@ EventTarget.addEventListner(type, listener)
 
 > ## JS문법[2] (handout)
 
-### 
+### 변수
+
+- **let**: 값을 재할당 할 수 있는 변수를 선언하는 키워드
+
+  - 한번만 선언할 수 있으며 여러번 할당가능
+
+  ```javascript
+  let x = 1
+  x = 3
+  ```
+
+  - 재선언 할 경우 아래의 에러가 발생한다
+
+  ```javascript
+  let x = 1
+  let x = 3
+  -> has already been declared
+  ```
+
+  - 블록 유효범위를 갖는다
+
+  ```javascript
+  let x = 1
+  if (x===1): {
+      let 
+  }
+  ```
+
+  
 
 
+
+#### 2. 타입과 연산자
+
+ const f = NaN (Not a number, 타입:넘버)
 
 
 
 > ## JS실습[1] (Todo CRUD)
+
+
+
+```javascript
+const button = document.querySelector('button')
+const input = document.querySelector('input')
+function todoCRUD () {
+    const content = input.value
+    if (content) {
+        const li = document.createElement('li')
+        li.innerText = content
+
+        const ul = document.querySelector('ul')
+        ul.append(li)
+        input.value = ''
+
+        li.addEventListener('click', function (event) {
+            event.target.classList.toggle('done')
+        })
+
+        //li.remove()
+        const deleteButton = document.createElement('button')
+
+        deleteButton.innerText ="X"
+        deleteButton.style.marginLeft = "10px"
+
+        li.appendChild(deleteButton)
+
+        deleteButton.addEventListener('click', function () {
+            li.remove()
+        })
+
+    } else {
+        alert("니할일 입력해!")
+    }
+}
+button.addEventListener('click', todoCRUD)
+input.addEventListener('keypress', function(event) {
+    if (event.code === 'Enter') {
+        todoCRUD()
+    }
+})
+```
 
 
 
