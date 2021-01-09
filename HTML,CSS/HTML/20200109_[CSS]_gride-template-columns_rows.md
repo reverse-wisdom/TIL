@@ -1,6 +1,7 @@
 > ### CSS Grid 핵심정리 
 >
-> - grid-template-columns, grid-template-rows
+> - **grid-template-columns(행), grid-template-rows(열)**
+> - **grid-auto-rows/grid-auto-columns**
 
 ```html
 <!DOCTYPE html>
@@ -40,17 +41,52 @@
 </body>
 ```
 
+
+
+- **grid-template-columns(행), grid-template-rows(열)**
+
 ```
 display: grid;
 grid-template-columns: 100px 300px 200px; 고정비율
 grid-template-columns: 1fr 2fr 1fr; 상대비율
-grid-template-columns: 1fr 500px 1fr; 반응형
-grid-template-columns: repeat(3, 1fr);반복횟수지정
+grid-template-columns: 1fr 500px 1fr; 반응형(중간은 고정비율 나머지는 상대비율)
+grid-template-columns: repeat(3, 1fr);반복횟수지정 (=1fr, 1fr, 1fr)
 grid-template-columns: repeat(3, 1fr 2fr 1fr); 9개 컬럼 지정하는 방법
-
+(1,2,1,1,2,1,1,2,1)
 grid-template-rows:  200px 200px 200px;
 grid-template-rows:  200px 200px;
 
 폭을 늘이려면 height: 숫자vh;
 ```
 
+- **grid-auto-rows/grid-auto-columns**
+
+  (**grid-template-columns(행), grid-template-rows(열)**  랑 비교)
+
+```
+.grid-container {
+	grid-templates-rows: repeat(3, minmax(100px,auto))
+}
+```
+
+![image-20210110001048624](image-20210110001048624.png)
+
+![image-20210110001116576](image-20210110001116576.png
+
+![image-20210110001524528](image-20210110001524528.png)
+
+**일관성이 깨짐(repeat가 3번이라 9개만 적용됨 ) -> 그래서 나온 개념이 grid-auto-rows/grid-auto-columns**
+
+
+
+➥ gird-auto-rows 적용
+
+```css
+.grid-auto-rows: {
+    minmax(100px, auto)
+}
+```
+
+![image-20210110001544527](image-20210110001544527.png)
+
+→ item 갯수에 구애 받지않고 auto 같이 최소 100px로 유지됨
